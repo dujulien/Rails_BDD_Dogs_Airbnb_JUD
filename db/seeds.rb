@@ -12,17 +12,22 @@ require 'faker'
  	City.create(city_name: Faker::Address.city)
  end
 
-# Create entries for dogsitter table
+# Create entries for dogsitters table
  10.times do 
  	Dogsitter.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,city: City.find(rand(1..20)))
  end
 
-# Create entries for dogsitter table
+# Create entries for dogs table
  50.times do 
  	Dog.create(dog_name: Faker::Creature::Dog.name, city: City.find(rand(1..20)))
  end
 
   # Create entries for strolls table with relations between dogsitters, and dogs
  300.times do 
- 	Stroll.create(date: Faker::Date.between(from: 2.days.ago, to: Date.today), dog: Dog.find(rand(1..50)), dogsitter: Dogsitter.find(rand(1..10)), city: City.find(rand(1..20)))
+ 	Stroll.create(date: Faker::Date.between(from: 2.days.ago, to: Date.today), dogsitter: Dogsitter.find(rand(1..10)), city: City.find(rand(1..20)))
+ end
+
+  # Create entries for join_table_dog_strolls table to create relations between dogs and strolls
+ 500.times do 
+ 	JoinTableDogStroll.create(dog: Dog.find(rand(1..50)), stroll: Stroll.find(rand(1..300)))
  end

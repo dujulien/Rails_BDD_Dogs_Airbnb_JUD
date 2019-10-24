@@ -1,24 +1,17 @@
-# README
+# README# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DOGSITTING PROJECT
+This project aims at creating a relational database between dogsitters, dogs, strolls and cities tables.
 
-Things you may want to cover:
+To feed this database, please type $rails db:seed in your Terminal
 
-* Ruby version
+To test the relations between the tables, you could try the following entries in the rails console ($rails c).
 
-* System dependencies
+	- Dog.find(5).dogsitters
+	- Dogsitter.find(6).dogs
+	- Dog.find(14).strolls
+	- Dogsitter.find(2).strolls
+	- City.find(3).strolls
+	- Strolls.find(45).dogs
+	- Strolls.find(34).dogsitters
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
